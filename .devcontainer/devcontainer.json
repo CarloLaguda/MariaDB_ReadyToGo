@@ -1,15 +1,19 @@
 {
-  "name": "Single Container with MariaDB",
-  "build": {
-    "dockerfile": "Dockerfile"
-  },
-  "forwardPorts": [3306],
+  "name": "mariadb_ready_to_go",
   "customizations": {
     "vscode": {
       "extensions": [
-        "ms-mssql.mssql"
+        "angular.ng-template",
+        "dbaeumer.vscode-eslint"
       ]
     }
   },
-  "remoteUser": "root"
+  "postCreateCommand": "sudo apt update && sudo apt install mariadb-server python3 python3-pip -y && sudo service mariadb start",
+  "portsAttributes": {
+    "4200": {
+      "label": "Angular Dev Server",
+      "onAutoForward": "notify"
+    }
+  },
+  "forwardPorts": [3306]
 }
