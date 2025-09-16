@@ -8,6 +8,8 @@ ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && apt-get -y install mariadb-server mariadb-client \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
+RUN sudo service mariadb start
+
 # Add a script to start MariaDB when the container launches
 COPY startup.sh /usr/local/bin/
 
@@ -19,6 +21,8 @@ EXPOSE 3306
 
 # You would add your application's setup here, e.g.,
 RUN apt-get update && apt-get -y install nodejs npm python3 python3-pip && apt-get clean && rm -rf /var/lib/apt/lists/*
+
+RUN sudo mariadb
     
 # COPY . /workspace
 # WORKDIR /workspace
