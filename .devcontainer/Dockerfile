@@ -20,8 +20,9 @@ EXPOSE 3306
 # You would add your application's setup here, e.g.,
 RUN apt-get update && apt-get -y install nodejs npm python3 python3-pip \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
+    
+RUN sudo service mariadb start
 
-RUN sudo service mariadb start \
-    sudo mariadb
+RUN sudo mariadb
 # COPY . /workspace
 # WORKDIR /workspace
