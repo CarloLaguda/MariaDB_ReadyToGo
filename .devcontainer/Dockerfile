@@ -18,6 +18,7 @@ ENTRYPOINT ["/usr/local/bin/startup.sh"]
 EXPOSE 3306
 
 # You would add your application's setup here, e.g.,
-# RUN apt-get install -y nodejs npm
+RUN apt-get update && apt-get -y install nodejs npm python3 python3-pip \
+    && apt-get clean && rm -rf /var/lib/apt/lists/*
 # COPY . /workspace
 # WORKDIR /workspace
