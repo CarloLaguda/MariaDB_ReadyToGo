@@ -1,5 +1,7 @@
 sudo apt update
 sudo apt install mariadb-server -y
 sudo service mariadb start
-pip install mysql
-#sudo npm install -g @angular/cli
+sudo mariadb
+pip install mysql-connector-python 
+pip install pandas
+sudo npm install -g @angular/cli
