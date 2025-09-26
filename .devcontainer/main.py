@@ -7,6 +7,7 @@ time.sleep(3)
 try:
     conn = mysql.connector.connect(
         host="localhost",
+        user = "vscode",
         password="",  # empty password
         database="WorkHubDB"
     )
